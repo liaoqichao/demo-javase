@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS Layout:Box Model</title>
+<style type="text/css">
+	div{
+		border:#09f solid; 1px;	/*边框有三个属性,颜色，实线虚线,粗细*/
+/* 		height:100px; */
+		width:300px;
+	}
+	#div_1{/*id选择器*/
+/* 		border-bottom: #f60 dashed 2px; */
+		background-color: #f90;
+/* 		padding:20px 100px 200px;/*上边距  左右边距 下边距*/ */
+		padding:20px 100px 200px 300px;/*上  右 下 左  (顺时针)*/
+		margin:0px;
+		/*当margin:0时,div_1和网页的边框还有一段距离。这段距离是<body></body>到网页边框的距离*/
+		/*来个body{margin:0}可以解决*/
+	}
+	#div_2{
+		background-color: #0cf;
+		padding:20px;
+	}
+	#div_3{
+		background-color: #3f0;
+		padding: 20px 100px;/*第一个指定的是上下边距,第二个指定的是左右边距*/
+	}
+	body{
+ 		margin:0px; 
+	}
+
+</style>
+</head>
+<body>
+<!-- 
+	盒子模型(div+css).
+	边框：border(上下左右值都一样)
+		上	border-top 
+		下	border-bottom
+		左	border-left
+		右	border-right
+	内边距:padding(上下左右值都一样)
+		padding-top
+		padding-bottom
+		padding-left
+		padding-right
+	外边距(盒子距离其他盒子的距离):margin
+		margin-top
+		margin-bottom
+		margin-left
+		margin-right
+ -->
+ 
+ 	<div id="div_1">
+ 		第一个盒子11
+ 	</div>
+ 	<div id="div_2">
+ 		第二个盒子22
+ 	</div>
+ 	<div id="div_3">
+ 		第三个盒子33
+ 	</div>
+</body>
+</html>

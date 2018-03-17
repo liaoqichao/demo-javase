@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS语句</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+// 		语句：
+// 		1.顺序结构
+// 		2.判断结构	if ;else if;...; else if;else
+// 		3.选择结构	switch.JAVA的switch只能放byte，short，int，char。jdk1.7后支持string。js所有类型都可以选择
+// 		4.循环结构
+// 		5.其他语句
+		
+// 		-----------------判断结构---------------------------------------
+// 		var x = 3;
+// 		if(x==4)
+// 			alert("yes");
+// 		else
+// 			alert("no");//no
+// 		if(x=4)//4是真,但是不可以4=x,只能x=4 
+// 			alert("yes");//yes
+// 		else
+// 			alert("no");
+		//判断的时候变量常量都可以放左边,赋值的时候常量只能放在右边。 所以建议判断把常量放在左边,以报错来修正代码
+		
+// 		------------------------选择结构--------------------------------
+// 		var x="abc";
+// 		switch(x){
+// 		case "kk":	alert("a");break;
+// 		case "abc":	alert("b");break;	//b
+// 		default:	alert("c");//default放在最前面也是最后执行
+// 		}
+		
+// 		-----------------------循环结构----------------------------------
+		
+// // 		循环三要素：条件(满足什么条件循环)，循环体(要循环的内容),控制次数(要循环到什么时候不循环)
+// 		var x = 1;
+// // 		while(x<3); --> while(x<3){}
+// 		document.write("<font color='blue' size='5'>");
+// 		while(x<10){
+// // 			alert("x="+x);
+// //			将数据直接写到当前页面中
+// 			document.write("x="+x+"<br/>");
+// 			//因为写的是给浏览器解析的,浏览器可以解析html语言,所以用br。写在页面里面的都是需要html解析的。
+// 			x++;
+// 		}
+// 		document.write("</font>");
+
+// 		for(var x = 0 ; x < 3 ; x++){//不能写int
+// 			document.write("x="+x);
+// 		}
+		
+// 		----------------------其他语句------------------------
+// 			break;跳出switch,跳出循环
+// 			continue;结束本次循环进入下一次循环
+			w:for(var x=0 ; x<3; x++){
+				for(var y=0; y<4 ; y++){
+					document.write("x="+x);
+// 					break;//内循环结束  x=0x=1x=2
+// 					break w;//x=0
+// 					continue;//x=0x=0x=0x=0x=1x=1x=1x=1x=2x=2x=2x=2 
+					continue w;//x=0x=1x=2 
+				}
+			}
+		
+		
+	</script>
+</body>
+</html>

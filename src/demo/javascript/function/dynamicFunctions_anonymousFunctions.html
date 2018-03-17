@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js函数中的其他表现形式</title>
+</head>
+<body>
+	<script type="text/javascript">
+// 			js函数中的其他表现形式
+
+// 			1.动态函数:使用的是js中内置的对象Function.但是用的不多
+
+// 			var args1 = "x,y";
+// 			var args2 = "x,y,z";
+// 			var body1 = "return x+y";
+// 			var body2 = "return x*y*z";
+			
+// 			var add = new Function(args1,body1);//参数,函数体
+// 			var sum = add(4,8);
+// 			alert(sum);
+			
+// 			var multi = new Function(args2,body2);
+// 			var product = multi(4,8,1); 
+// 			alert(product);			
+			
+// 			用之前的方法,是定义死的。用这种方法，参数和函数体都是字符串，可以var 一个字符串，这样参数列表和函数体就改变了。函数也就改变了
+// 			函数对象的引用没变。所以是动态函数。
+
+// 			2.匿名函数：通常是函数的简写
+			var add = function(a,b){
+				return a+b;
+			}
+			alert(add(7,8));//15
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		定义一个事件源,通过事件源的触发,获取想要的结果
+		比如用户通过点击按钮就可以知道浏览器的一些信息
+	 -->
+	 <!-- 定义事件源 ,注册事件关联的动作 ,反正事件的动作都是on开头的,例如onclick-->
+	 <input type="button" value="演示window中的对象1" onclick="windowObjDemo()"/>
+	 <input type="button" value="演示window中的对象2" onclick="windowObjDemo2()"/>
+	 <!-- 定义onclick的处理方式 -->
+	 <script type="text/javascript" src="out.js"></script>
+	 <script type="text/javascript">
+	 	//定义一个函数
+	 	function windowObjDemo(){
+// 	 		alert("window Run");
+// 			需要知道浏览器的信息,需要用到window的nevigator对象
+			var name = navigator.appName;//window.可以省略
+			var version = window.navigator.appVersion;
+// 			println("name : "+name+"</br>"+"version : "+version);
+			println(name+" : "+version);
+	 	}
+	 	
+	 	//演示location对象
+	 	function windowObjDemo2(){
+// 	 		var proptocol = location.protocol;	//为什么不行?
+	 		var text = location.href;
+// 	 		println(protocol);
+	 		println(text);
+	 		
+// 	 		给location属性的href设置一个值。,改变了地址栏的值，并对其进行解析，如果是http就进行连接访问。
+			location.href="http://www.baidu.com";
+	 	}
+	 	
+	 	//演示screen对象
+	 	document.write("<hr/>");
+	 	document.write(window.screen.width+"<br/>");//1366
+		document.write(window.screen.height);//768
+		
+		//history对象。浏览器的前进，后退
+// 		history.back();
+		
+// 		前进的两种方式
+// 		history.forward();
+// 		history.go();
+	 </script>
+</body>
+</html>

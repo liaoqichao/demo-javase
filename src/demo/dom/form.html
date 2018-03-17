@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单校验</title>
+</head>
+<body>
+	<!--
+		表单校验 
+		信息发送到服务器端之前校验，校验结果对了就发，错了就不发并提示
+	 -->
+	 <script type="text/javascript" src="form.js"></script>
+	 <form id="userinfo" onsubmit="return checkForm()">
+	 <!-- 改写默认提交事件onsubmit,不然的话无论正确只要点击按钮流提交。
+	 	      这个事件可以进行布尔值类型的返回。onsubmit="return true" 
+	 		
+	  -->
+	 	<!-- 光标在text里面叫做获取焦点事件。要光标离开就立刻进行校验，所以事件为失去焦点onblur -->
+	 	用户名称：<input type="text" name="user" onblur="checkUser()"/><span id="userspan"></span><br/>
+	 	输入密码：<input type="password" name="psw" onblur="checkPsw()"/><span id="pswspan"></span><br/>
+	 	确认密码：<input type="password" name="repsw" onblur="checkRepsw()"/><span id="repswspan"></span><br/>
+	 	邮件地址：<input type="text" name="mail" onblur="checkMail()"/><span id="mailspan"></span><br/>
+	 	<input type="submit" value="提交"/>
+	 	<hr/>
+	 	<!-- 自定义提交按钮 -->
+	 	<input type="button" value="我的提交" onclick="mySubmit()"/>
+	 </form>
+	 
+	 
+</body>
+</html>

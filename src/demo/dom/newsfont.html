@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="newsfont.css" type="text/css"/>
+<!-- 可以通过事件(点击按钮)改变href的值,从而改变导入的css文件(页面风格) -->
+<script type="text/javascript" src="newsfont.js"></script>
+</head>
+<body>
+	<!-- 
+		新闻字体的大中小样式改变
+		1.先有新闻数据,并用标签封装
+		2.定义页面样式
+		3.确定事件源和事件,以及处理方式中的被处理的节点
+			事件源：a
+			事件：onclick
+			被处理节点：#newstext
+			
+			href="javascript:void(0)" 取消超链接的默认点击效果
+			注册新事件onclick
+	 -->
+	 
+	<h1> 这是一个新闻标题</h1>
+	<hr/>
+<!-- 	<a href="javascript:void(0)" onclick="changeFont('24px','#aaaaaa')">大字体</a> -->
+<!-- 	<a href="javascript:void(0)" onclick="changeFont('16px','#000000')">中字体</a> -->
+<!-- 	<a href="javascript:void(0)" onclick="changeFont('12px','red')">小字体</a> -->
+	<a href="javascript:void(0)" onclick="changeFont2('max')">大字体</a>
+	<a href="javascript:void(0)" onclick="changeFont2('norm')">中字体</a>
+	<a href="javascript:void(0)" onclick="changeFont2('min')">小字体</a>
+	<!-- 只用修改样式就可以了,不用修改HTML和JavaScript -->
+	<div id="newstext" class="norm">
+		<p>
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		 这是新闻内容这是新闻内容
+		</p>
+		<p>
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		</p>
+		<p> 
+		 这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新
+		 闻内容这是新闻内容
+		</p>
+	 </div>
+</body>
+</html>

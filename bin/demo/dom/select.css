@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+.clrclass{
+	height:50px;
+	width:50px;
+	float: left;
+	margin-right: 20px;
+}
+#text{
+	clear:left;
+}
+.selectColor{
+	width:100px;
+}

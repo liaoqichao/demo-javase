@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<student> 
+  <stu> 
+    <id>100</id>  
+    <name>张三</name>  
+    <age>20</age> 
+  </stu>  
+  <stu> 
+    <id>101</id>  
+    <name>李四</name>  
+    <age>30</age> 
+  </stu>  
+  <stu> 
+    <id>103</id>  
+    <name>张三三</name>  
+    <age>23</age> 
+  </stu>  
+  <stu> 
+    <id>104</id>  
+    <name>李思思</name>  
+    <age>24</age> 
+  </stu>  
+  <stu> 
+    <id>105</id>  
+    <name>王老五</name>  
+    <age>25</age> 
+  </stu>  
+  <stu> 
+    <id>106</id>  
+    <name>赵六</name>  
+    <age>16</age> 
+  </stu>  
+  <stu> 
+    <id>107</id>  
+    <name>赵六</name>  
+    <age>27</age> 
+  </stu>  
+  <stu> 
+    <id>233</id>  
+    <name>接二连珊</name>  
+    <age>3000</age> 
+  </stu> 
+  
+</student>

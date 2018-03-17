@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+/*伪元素选择器*/
+/*伪元素就是html中预定义好的选择器*/
+/*
+	超链接的状态
+*/
+
+
+/*未访问   用冒号a:link*/
+a:link{
+	background-color: #06f;
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+}
+/*鼠标悬停*/
+a:HOVER {
+	background-color: #fff;
+	color:#06f;
+	font-size:24px;
+}
+/*点击效果 瞬间的*/
+a:ACTIVE {
+	background-color: #000;
+	color: #fff;
+	font-size:36px;
+}
+/*访问后效果*/
+a:VISITED {
+	background-color: #ff9;
+	color: #000;
+	text-decoration: line-through; /*为什么没有效果  用不同的浏览器,用视频的代码都没有效果*/
+	font-size: 6px;
+}
+

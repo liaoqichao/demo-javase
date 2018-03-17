@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS Positioning(定位)</title>
+<style type="text/css">
+
+	div{
+		border:#09f solid 1px;
+		height:100px;
+		width:200px;
+	}
+	#div_0{
+		background-color: #ccc;
+		height:400px;
+		width:400px;
+		position: absolute;/*div_0是div_1的父对象,如果没有这句的话,div_1相对于body偏移距离,如果有这句,则是相对于父对象偏移距离*/
+		top:100px;
+		left:100px;
+	}
+	#div_1{
+	
+		background-color: #f90;
+		position: absolute;/*拖出文档流*/
+		/*定义位置
+			用程序设计语言使top,left的值不断改变,而这个元素又是一张图片,则变成图片飞来飞去的广告效果
+			没有指定父对象(上层嵌套的元素),则默认为body
+		*/
+		top:260px;
+		left: 70px;
+	}
+	#div_2{
+	
+		background-color: #0cf;
+		width: 220px;
+		position: relative;/*区域2移动了位置,但是区域3没有补位,因为2没有离开文档流.所以位置还占着*/
+		/* 	postion的值static(默认),absolute(将对象拖出文档流),relative(对象不可层叠,没离开文档流) */
+/* 		relative和absolute的区别：relative没用从文档流拖出,不用补位 */
+		left:200px;
+		top:200px;
+	}
+	#div_3{
+	
+		background-color: #3f0;
+	}
+</style>
+</head>
+<body>
+	<!-- 
+	key = position 
+	value = static 默认
+		  = absolute 将对象从文档流拖出(脱离文档流。但是位置可能会和文档流的对象的位置重叠)
+		  = 未支持...ORZ
+		  = relative 对象不可以层叠。在正常的文档流中偏移位置
+	-->
+	<div id="div_0">
+		<div id="div_1">第一个div区域111</div>
+		<div id="div_2">第二个div区域222</div>
+		<div id="div_3">第三个div区域333</div>
+	</div>
+</body>
+</html>

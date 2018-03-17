@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>下拉菜单</title>
+<link rel="stylesheet" href="select.css" type="text/css"/>
+<script type="text/javascript" src="select.js"></script>
+</head>
+<body>
+	<!-- 
+	
+	 -->
+	 <div class="clrclass" id="clr1" style="background-color: red" onclick="changeColor(this)"></div>
+	 <div class="clrclass" id="clr2" style="background-color: green" onclick="changeColor(this)"></div>
+	 <div class="clrclass" id="clr3" style="background-color: #808080" onclick="changeColor(this)"></div>
+	 <div class="clrclass" id="clr4" style="background-color: black" onclick="changeColor(this)"></div>
+	 <hr/>
+	 <div id="text">
+	 	需要显示效果的文字也可以是可以改变颜色的图片<br/>
+	 	需要显示效果的文字也可以是可以改变颜色的图片<br/>
+	 	需要显示效果的文字也可以是可以改变颜色的图片<br/>
+	 	需要显示效果的文字也可以是可以改变颜色的图片<br/>
+	 	需要显示效果的文字也可以是可以改变颜色的图片<br/>
+	 </div>
+	 
+	<select name="selectColor" onchange="changeColor2()"><!-- 下拉菜单就是事件源,触发事件的方式是onchange -->
+		<option value="black">--选择颜色--</option>
+		<option value="red">红色</option>
+		<option value="green">绿色</option>
+		<option value="black">黑色</option>
+		<option value="#808080">rgb(128,128,128)</option>
+	</select>
+	<br/>	 
+	<select class="selectColor" name="selectColor2" onchange="changeColor3()" style="background-color: black"><!-- 下拉菜单就是事件源,触发事件的方式是onchange -->
+		<option style="background-color: black" value="black"></option>
+		<option style="background-color: red" value="red"></option>
+		<option style="background-color: green" value="green"></option>
+		<option style="background-color: #808080" value="#808080"></option>
+	</select>	 
+	 
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Common selector</title>
+	<style>
+		 @IMPORT url("commonSelector.css"); 
+	</style>
+	<!-- 优先级没class选择器高 -->
+	<link rel="stylesheet" href="div.css" type="text/css"/>
+</head>
+<body>
+	<pre>
+		css格式代码
+		选择器名称{
+			选择器就是html中的标签。如div,p,span 不需要&lt;&gt;
+			属性名1：属性值1;属性名2：属性值2;...;
+			如果一个属性有多个值用空格隔开
+			属性名3:属性值1 属性值2 属性值3
+		}
+	</pre>
+	<p>
+		选择器就是指CSS要作用的HTML标签。那个标签名称就是选择器
+		选择器有3种：
+		1.HTML标签选择器。例如之前演示的
+		2.class选择器。其实使用标签中的class属性。每个标签都有一个class属性。
+			假设有10个div标签。6个要A样式,4个要B样式。可以把6个归为1类,另外4个归为
+			另1类。class选择器还可以对不同标签进行相同样式的设定(好处)。
+			(div指定的是全部div,div.classname指定特定的div,所以class选择器优先级高)
+		3.id选择器。
+			用的是标签中的id属性。通常id的取值在页面中是唯一的。因为该属性除了给css使用,还可以改JavaScript使用。
+			id通常都是用于标识页面中的特定区域使用的
+			<br/>
+			(标签的style属性>id选择器的优先级>class选择器优先级>标签选择器优先级)
+			样式的优先级一般后加载的覆盖先加载的。类属性的优先级要比标签高,越少处优先级越高
+	</p>
+		<div class="A" id="qq">div1<b>区域</b></div>
+		<div class="A">div2</div>
+		<div class="A">div3</div>
+		<div >div4</div>
+		<div >div5</div>
+		<span class="A">span1<b>区域</b></span>
+		<span>span2</span>
+		<p class="A">p1</p>
+		<p >p2</p>
+</body>
+</html>

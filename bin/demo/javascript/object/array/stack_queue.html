@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Array 实现栈和队列</title>
+</head>
+<body>
+	<script type="text/javascript" src="../../out.js"></script>
+	<script type="text/javascript">
+// 		栈
+		var stack = [];
+		stack.push("a");		//unshift("a");
+		stack.push("b");
+		stack.push("c");
+		stack.push("d");
+		stack.pop();			//shift();
+		stack.pop();
+		println(stack);//a,b	//unshift和shift搭配也可以实现栈
+		println("<hr/>");
+// 		队列
+		var queue = [];
+		queue.push("abc");		//unshift("abc");
+		queue.push("def");
+		queue.push("ghi");
+		queue.push("jkl");
+		queue.shift();			//pop();
+		queue.shift();
+		println(queue);//ghi,jkl,unshift和pop搭配也能实现队列
+		println("<hr/>");
+	</script>
+</body>
+</html>

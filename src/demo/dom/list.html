@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>展开闭合列表</title>
+<link rel="stylesheet" href="list.css" type="text/css"/>
+<script type="text/javascript" src="list.js"></script>
+</head>
+<body>
+	<!-- 1.标签封装数据 
+		 2.定义css
+		 3.明确事件源(dt,要点它),事件,以及要处理的节点
+		 4.明确具体方式,就是数据的处理内容。js完成
+	-->
+	<dl class="close">
+		<dt onclick="list(this)"><a href="javascript:void(0)">显示条目一</a></dt>
+		<!-- 展开后不参与文档流的改变.导致dd标签的内容和下一个dl的dt重叠 -->
+		<dd>展开列表内容11</dd>
+		<dd>展开列表内容111</dd>
+		<dd>展开列表内容1111</dd>
+	</dl>
+	<dl class="close">
+		<dt onclick="list(this)"><a href="javascript:void(0)">显示条目二</a></dt>
+		<dd>展开列表内容2</dd>
+		<dd>展开列表内容22</dd>
+		<dd>展开列表内容222</dd>
+	</dl>
+	<dl class="close">
+		<dt onclick="list(this)"><a href="javascript:void(0)">显示条目三</a></dt>
+		<dd>展开列表内容3333</dd>
+		<dd>展开列表内容333</dd>
+		<dd>展开列表内容333</dd>
+	</dl>
+</body>
+</html>

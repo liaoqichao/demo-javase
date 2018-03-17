@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Array对象的基本功能</title>
+</head>
+<body>
+	<script type="text/javascript" src="../../out.js"></script>
+	<script type="text/javascript">
+// 		arrObj = new Array();
+// 		arrObj = new Array([size]);
+// 		arrObj = new Array([e1,e2,e3,...,eN]);
+		var arr = ["nba","haha","cba","aaa","abc"];
+		
+// 		arr属性：constructor,length,prototype
+// 		arr主要方法:concat(在数组末尾连接,相当于java中StringBuffer的append),join(返回元素用指定分隔符分隔开的字符串),
+// 				 pop(出栈并返回该元素,相当于java中LinkedList的removeLast),
+// 				 push(返回新数组的长度,如果添加的是数组,则把数组作为元素添加进来,而不是把数组中的元素作为元素添加进来,也就是说相当于二维数组),
+// 				 reverse,shift(移除数组的一个元素,并返回该元素，相当于出队列),
+// 				 slice(截取数组,包涵头不包含尾,如果第一个参数为负数则start=start+length;如果end<0，end=end+length.
+// 				 所以这里的负数相当于从后面数起)
+//				 sort,splice(移除1~n个元素,或者移除1~n个元素并且在移除的位置插入新元素。返回移除的元素。可以理解为元素的替换),
+// toLocalString,toString,unshift(将元素插入到数组的开始位置,并返回该数组,相当于addFirst),valueOf
+		var arr1 =[5,1,4,2,3];
+		var arr_concat = arr.concat(arr1,"-_,-","$_$");
+		println(arr_concat);//nba,haha,cba,aaa,abc,5,1,4,2,3,-_,-,$_$
+		println(arr.join("%"));
+// 		var arr2 =[[],[],[],[]];//二维数组
+		println(arr.shift());//nba
+		println(arr);//haha,cba,aaa,abc
+		println("<hr/>");
+		
+		var arr_slice = arr.slice(-3,-1);
+		println(arr_slice);//cba,aaa
+		println(arr.sort());//aaa,abc,cba,haha  按照字典顺序排
+		println("<hr/>");
+		
+		var arr_splice = arr.splice(1,3,8080,9527,"xixixixixi","miao");
+		//可以理解为元素的替换。从第一个位置开始(包括第一个元素),长度为3,删除元素,并在删除的位置(这里是1)添加元素8080，...,"MIAO";
+		println(arr);//aaa,8080,9527,xixixixixi,miao
+		println(arr_splice);//abc,cba,haha
+		println("<hr/>");
+		
+		var arr_unshift = arr.unshift("tou");
+		println(arr);//tou,aaa,8080,9527,xixixixixi,miao
+		println(arr_unshift);//undefined
+	</script>
+</body>
+</html>

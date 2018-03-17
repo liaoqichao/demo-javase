@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+/* 只改变div标签的样式 */
+/* div.A{ */
+/* 	background-color: #123; */
+/* 	color: #ddd; */
+/* } */
+
+/* 改变所有类名为A的标签的样式 */
+.A{
+	background-color:#123;
+	color:#ddd;
+}
+/* 预定义样式 ,还没被用到,A切换到B实现动态加载*/
+.b{
+	background-color: #abc;
+	coloc : #0f0;
+}
+
+/* #qq的话则是对全部id="qq"的标签用同一种样式 */
+div#qq{
+	background-color: #ff80ff;
+	color:#004000;
+}

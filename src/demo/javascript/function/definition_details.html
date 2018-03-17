@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS函数定义和细节</title>
+</head>
+<body>
+	<script type="text/javascript">
+// 			函数：两个明确：参数(参与运算位置的内容),返回值(功能的结果)
+			
+// 			js中定义函数的格式	
+// 			function 函数名(参数列表){
+// 				函数体 return 返回值;如果没有具体返回值,return可以省略
+// 			}
+// 			function demo(){
+// 				alert("demo run");
+// 			}
+// 			demo();//调用函数
+			
+// 			function add(a,b){//不能var a,var b
+// 				return a+b;
+// 			}
+// 			alert("sum = "+add(3,5));//8
+			
+	</script>
+	<script type="text/javascript">
+// 			-----------------函数的一些细节---------------------------
+		//1.js函数不存在重载。建议函数定义几个参数就传输几个实参
+		//  函数中有一个数组对参数进行存储。这个数组就是arguments
+// 		function show(x,y){
+// 			alert(x+":"+y);
+// 			for(var i=0;i<arguments.length;i++){//这里如果var x=0的话,在java会变量名冲突,这里不会
+// 				document.write(arguments[i]+" ");
+// 			}
+// 		}	
+// 		show(4);//4:undefined 1  write(4)
+// 		show();//undefined:undefined 0
+// 		show(6,7,8);//6:7 3	write(678)
+		
+		//2.
+		function getSum(){//函数一定义出来，在内存里面不是一个函数,是一个函数对象(基于对象)
+			return 100;
+		}
+		var sum = getSum;
+//		这里没有写括号,这里的getSum是函数对象的名字.getSum就是这个函数对象的引用,
+// 		将引用的地址赋值给sum,这时sum也指向这个函数对象，相当于这个函数对象有2个函数名称。这时sum()调用也可以
+		document.write(sum);//function getSum(){ return 100; } 
+// 		把函数对象变成字符串,打印出来相当于java的toString。js中对象的字符串就是定义的书写格式(代码)
+
+//------------------模拟函数重载------------------------
+// 		arguments//参数的数组
+// 		arguments.length//参数的个数
+		function getSum_1(){
+// 			var sum = 0;
+// 			for(var i=0;i<arguments.length;i++){
+// 				if(!isNaN(arguments[i]))
+// 					return;
+// 				sum = sum + parseInt(arguments[i]);
+// 			}
+			if(arguments.length==2)
+				return arguments[0]+arguments[1];
+			else if(arguments.length==3)
+				return arguments[0]+arguments[1]+arguments[2];
+			else
+				return 0;
+// 			return sum;
+		}
+		var sum_1 = getSum_1(3,4,5);
+		var sum_2 = getSum_1(3,4);
+		document.write("<hr/>");
+		document.write(sum_1);
+		document.write("<hr/>");
+		document.write(sum_2);
+	
+	</script>
+	
+	
+</body>
+</html>

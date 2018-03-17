@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE person [
+	<!ELEMENT person (name+,age+,sex+,birthday,school)>
+	<!ELEMENT name (#PCDATA)>
+	<!ATTLIST name
+		ID3 ID #REQUIRED
+	>
+	<!ELEMENT age (#PCDATA)>
+	<!ATTLIST age
+		ID2 (AA|BB|CC) #REQUIRED 
+	>
+	<!ELEMENT sex (#PCDATA)>
+	<!ATTLIST sex
+		ID4 CDATA #FIXED "YAO"
+	>
+	<!ELEMENT birthday (#PCDATA)>
+	<!ATTLIST birthday 
+		ID1 CDATA #IMPLIED
+	>
+	<!ELEMENT school (#PCDATA)>
+	<!ATTLIST school
+		ID5 CDATA "WWW"
+	>
+	<!ENTITY TEST "HAHA">
+]>
+<person>
+	<name ID3="_123">&TEST;</name>
+	<age ID2="BB">20</age>
+	<!-- ID2只能是AA或BB或CC -->
+	<sex ID4="YAO">男</sex>
+	<!-- ID4的值必须要YAO，也可以没有ID4这个属性 -->
+	<birthday>2015</birthday>
+	<school ID5="TTT">aa</school>
+	<!-- 如果school没有写ID5属性,则默认WWW
+		 如果有设定的话,则按照设定的
+	 -->
+<!-- 	没有属性会报错 -->
+</person>

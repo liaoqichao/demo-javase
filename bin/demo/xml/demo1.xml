@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 注释 -->
+<person id1="aaa">
+	<name>张三</name>
+	<age>20</age>
+	<a>&quot;a&lt;b&quot;</a>
+	<b><![CDATA[if(a<b && b<c &&d>f) return true;]]></b>
+<!-- b标签的结果	<![CDATA[ if(a<b && b<c &&d>f) return true; ]]> -->
+</person>

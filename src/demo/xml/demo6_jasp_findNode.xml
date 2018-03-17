@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 不只是demo6用到 -->
+<person> 
+  <p1 id1="aaaa"> 
+    <name>张三</name>  
+    <age>20</age> 
+  </p1>  
+  <p1> 
+    <name>李四</name>  
+    <age>40</age> 
+  </p1> 
+</person>

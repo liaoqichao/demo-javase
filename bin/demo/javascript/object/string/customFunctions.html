@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String自定义功能,原型</title>
+</head>
+<body>
+	<script type="text/javascript" src="../../out.js"></script>
+	<script type="text/javascript" src="stringtool.js"></script>
+	<script type="text/javascript">
+// 		去除字符串两端的空格
+		function trim(str){
+			var head=0;
+			var tail=str.length-1;
+			while(head<=tail && str.charAt(head)==" "){	//这里没有.equals方法.都是用==
+				head++;
+			}
+			while(head<=tail && str.charAt(tail)==" "){
+				tail--;
+			}
+			return str.substring(head,tail+1);
+		}
+		var str ="   ab  c    ";
+		alert("1-"+str+"-")
+		alert("2-"+trim(str)+"-");
+		
+		//把trim方法放到字符串类去,用str.trim()调用,不是用trim(str);
+// 		prototype:返回对象类型原型的引用
+// 		原型：该对象的描述 ,相当于JAVA中的类,如果原型添加了新方法,那么原型的对象都会有新方法
+// 		给string对象添加trim功能
+		alert("3-"+str.trim()+"-");//导入stringtool.js文件
+	</script>
+	<script type="text/javascript">
+// 			原型练习：
+// 			1.给字符串添加功能,变成字符数组
+// 			2.给字符串添加功能,将字符串反转
+//			以上方法都写在stringtool.js中
+			var str = "abcde";
+			println(str.toCharArray());//a,b,c,d,e
+			println(str.reverse())//edcba
+	</script>
+</body>
+</html>

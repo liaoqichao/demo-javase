@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/demo11_schema" xmlns:tns="http://www.example.org/demo11_schema" elementFormDefault="qualified">
+
+<!-- xmlns="http://www.w3.org/2001/XMLSchema"说明是约束文件 -->
+<!-- targetNamespace="http://www.example.org/demo11_schema" 要使用schema约束文件,就可以通过这个地址来引入约束文件。
+	名称空间用URL是为了避免重复 -->
+<!-- elementFormDefault="qualified" -->
+
+	<element name="person">
+		<complexType>
+			<sequence>
+				<element name="name" type="string"></element>
+				<element name="age" type="int"></element>				
+			</sequence>
+			<attribute name="id1" type="int" use="required"></attribute>
+		</complexType>
+	</element>
+</schema>

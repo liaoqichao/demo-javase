@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note SYSTEM "demo5_test_note.dtd">
+<!-- 要达到可以根据DTD写XML文件的程度 -->
+<note>
+	<to>you</to>
+	<from>me</from>
+	<heading>I just wanna say...</heading>
+	<body>nothing!</body>
+</note>

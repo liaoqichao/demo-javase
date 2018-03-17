@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS中的全局变量和局部变量</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		//在函数里面定义的变量是局部变量,在脚本片段中定义的变量是全局变量
+		for(var x=0 ; x<3 ;x++){	//这里的x是全局变量
+			document.write("x="+x);//x=0x=1x=2
+		}
+		function show(){
+			var y = 6;				//这里的y是局部变量
+		}
+// 		document.write("y="+y);		//错误,y没有定义
+		document.write("X==="+x); //x===3
+	</script>
+	
+<!-- 	IE8以上的版本自带调试工具(F12) -->
+<!-- 		建议,script标签放在</body>后面 -->
+	<script type="text/javascript">
+		document.write("XX==="+x);//xx===3
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>显示实时时间</title>
+</head>
+<body>
+	<div id="time">
+		
+	</div>
+	<script type="text/javascript">
+		function showTime(){
+			//获取div节点
+			var oDivNode = document.getElementById("time");
+			
+			//获取时间并格式化为本地时间格式
+			var date = new Date();
+			var time = date.toLocaleString();
+			
+			//在div节点输入格式化后的时间
+			oDivNode.innerHTML = time;
+			
+			//设置计时器，每1秒运行本身函数一次
+			setInterval("showTime()",1000);//最后要每次都执行函数
+		}
+		//运行函数
+		showTime();
+	</script>
+</body>
+</html>

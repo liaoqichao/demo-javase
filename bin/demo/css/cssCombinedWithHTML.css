@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+/*
+	在该文件中导入其他CSS文件
+*/
+@IMPORT url("div.css");
+@IMPORT url("span.css");

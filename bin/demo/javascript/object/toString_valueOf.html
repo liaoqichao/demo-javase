@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Object对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+// 		toString:	将对象变成字符串
+// 		valueOf：	返回对象的原始值
+		function show(){
+			alert("show run");
+		}
+		alert(show.toString()); //如果toString没有加括号则函数体隐藏为  [native code]
+		alert(show);			//函数体显示出来
+		
+		var array = [2,4,5,1,3];
+		alert(array.toString());//2,4,5,1,3
+		
+		alert(array.valueOf());//2,4,5,1,3
+		var abc = function(){
+			alert("abc run");
+		}
+		alert(abc.valueOf());//下面3行为输出结果
+// 		function(){
+// 			alert("abc run");
+// 		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<!ELEMENT person (name+,age?,sex*,school)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT sex EMPTY>
+<!ELEMENT school ANY>

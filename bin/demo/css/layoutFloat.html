@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS Layout : float</title>
+	<style type="text/css">
+		/*漂浮布局定位不准确*/
+		#div_1{
+			background-color: #90f;
+			width:300px;
+			float: left;
+		}
+		#div_2{
+			background-color: #0cf;
+			
+			float:right;
+		}
+		#div_3{
+			background-color: #f09;
+			clear:right;/*不允许左/右/左右(none?inherit?),有浮动对象。允许左右都有浮动对象(both)*/
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="div_1">第一个div区域111</div>
+	<div id="div_2">第二个div区域222</div>
+	<div id="div_3">第三个div区域333</div>
+</body>
+</html>

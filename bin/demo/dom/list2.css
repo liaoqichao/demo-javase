@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+table ul{
+	list-style: none;
+	margin: 0px;	/*外边距为0,通过border看到，但是字体还是没变*/
+	padding:0px;	/*通过内边距可以改变位置*/
+	background-color: #f2964a;
+	display: none;	/*不用overflow*/
+	/*用边框来测试与范围有多大*/
+/* 	border: #000000 1px solid; */
+}
+
+/*
+	对表格框线已经单元格的边框进行定义
+*/
+table{
+	border: #8080ff solid 1px;
+	width:100px;
+}
+table td{
+	
+	border: #8080ff solid 1px;
+	padding: 0px;
+	background-color: #f6f6f6;
+}
+/*
+	单元格中的超链接样式
+*/
+table td a:link,table td a:visited{
+	color: #1f6df1;
+	text-decoration: none;
+}
+table td a:HOVER{
+	color: #ff0000;
+}
+
+/*
+	预定义一些样式：类选择器
+*/
+.open{
+	display: block;
+}
+.close{
+	display: none;
+}
+
+

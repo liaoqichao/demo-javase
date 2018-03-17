@@ -1,0 +1,273 @@
+XML:可拓展标记型语言
+特点：
+1.使用标签来操作
+2.可以自定义标签，可以写中文的标签<猫></猫>
+
+主要功能：为了存储数据
+
+XML的应用：
+1.不同系统之间传输数据
+2.用来表示生活中有关系的数据
+3.经常用在配置文件
+
+XML语法:
+1.文档声明
+<?xml version="1.0" encoding="UTF-8"?>
+文档声明,如果没有上面这行的话,就不认为是xml文件。文档声明必须第一行第一列
+
+属性 	-version：有1.0和1.1 一般用1.0
+	-encoding：gbk,utf-8，iso8859-1
+	-standalone："yes"/"no"说明文档是否可以独立存在
+
+注意保存的xml的编码表格式(编码)和文档声明的编码表(解码)要一样，不然会出现乱码
+
+2.元素定义(标签的定义)
+	注意：1.有开始必须要有结束
+		2.标签没有内容可以在标签内结束。类似于HTML的<br/>
+		3.标签不可以交叉嵌套。不允许<a><b></a></b>
+		4.一个XML文档必须有且仅有一个根标签,其他标签都是这个根标签的子孙
+		5.标签内的空格和换行都当做标签的内容来解析
+			<a>内容</a>
+			<a> 
+				内容
+			</a>
+		  在HTML一样,在XML不一样
+		6.XML代码的区分大小写。<p></p>和<P></P>不一样。
+		7.名称规范:
+			a.标签名称不能以数字或者下划线开头.
+			b.不能包含空格和冒号
+			c.不能以xml(XML,Xml,xmla等)开头
+			d.XML标签可以是中文。
+
+3.XML中属性的定义
+	要求：
+	1.一个标签上可以有多个属性,但属性名称不能相同。
+	2.属性值可以用单引号或双引号括起来。属性名和值用"="连接。属性的值一定要有单引号或者双引号
+	3.名称规范和标签名称一样
+
+4.XML中的注释
+	<!-- XML的注释 -->
+	注意：注释不能嵌套,不能在第一行(第一行一定是文档声明)
+
+5.转义字符
+	<:&lt;
+	>:&gt;
+	&:&amp;
+	":&quot;
+	':&apos;
+
+6.CDATA区
+	有多个字符都需要转义的时候,把这些内容都放到CDATA区里面,就不需要进行转义
+	格式：<![CDATA[内容]]>
+
+7.PI指令(处理指令)
+	可以在XML中设置样式.对中文标签不起作用
+<?xml-stylesheet type="text/css" href="demo3.css"?>
+
+8.XML的约束
+	为什么需要约束?比如定义一个person.xml。想要这个文件只保存人的信息(name,age...).但是如果xml中有<猫></猫>标签，
+	符合语法规范但是猫不是人的信息。所以需要技术来规定XML中只能出现的元素，这时候需要约束。
+
+	XML约束的技术：dtd约束，schema约束(看懂)
+
+	dtd文件。后缀名为.dtd
+	8.1 创建dtd文件步骤：
+		1)看XML中有多少个元素,有几个元素,在DTD文件中写几个<!ELEMENT>
+		2)判断元素是简单元素(没有子元素)还是复杂元素
+			复杂元素：<!ElEMENT 元素名称 (子元素)>
+			简单元素：<!ELEMENT 元素名称 (#PCDATA)>
+		3)在XML文件中引入DTD文件
+			<!DOCTYPE 根元素的名称 SYSTEM "DTD文件路径">
+
+	**打开XML文件使用浏览器打开,浏览器只负责校验XML语法,不校验XML约束
+	**如果要校验XML的约束，需要使用工具(MyEclipse)
+
+	8.2 DTD的三种引入方式：
+		8.2.1.引入外部的DTD文件
+		<!DOCTYPE 根元素名称 SYSTEM "dtd文件路径">
+		8.2.2.引入内部的dtd文件
+		<!DOCTYPE 根元素名称 [
+		      dtd代码           
+		]>
+		8.2.3.引入网络上的dtd文件
+		<!DOCTYPE 根元素名称 PUBLIC "DTD名称" "DTD文件的URL">
+		- 后面Struts2框架使用配置文件,使用外部的dtd文件
+
+	8.4 使用dtd定义元素
+		简单元素：<!ELEMENT 元素名称 约束>
+			(#PCDATA)：约束name是字符串类型
+			EMPTY:用于指定元素主体为空,比如<br/>
+			ANY:任意类型(可以为空也可以不为空)
+		复杂元素：<!ELEMENT 元素名称 (子元素1,子元素2)>
+			,:子元素用逗号隔开,必须按照顺序写XML的元素
+			|:<!ELEMENT 元素名称 (子元素1|子元素2)>子元素只能是子元素1或者子元素2
+			表示子元素出现的次数：
+			没有符号,只能出现1次
+			+:表示1次或多次
+			?:表示0次或1次	
+			*:表示0次或多次
+	8.5	dtd定义属性
+		语法：<!ATTLIST 元素名称
+					属性名称 属性类型 属性的约束
+			>
+		8.5.1	属性类型:
+				CDATA:表示属性的值为普通字符串
+					<!ATTLIST birthday 
+					ID1 CDATA #REQUIRED
+					>
+				枚举：(dtd没有这个关键字)例如：
+					<!ATTLIST age
+						ID2 (AA|BB|CC) #REQUIRED
+					>
+					只能在一定范围内出现值,但每次只能出现其中一个
+				ID:值只能是字母或者下划线开头
+		8.5.2	属性约束设置说明
+				#REQUIRED:该属性必须出现
+				#IMPLIED：该属性可有可无
+				#FIXED:表示属性取值为一个固定值 。#FIXED "AAA"
+				直接值：属性约束直接"值"。元素没有写这个属性,则默认使用该属性值,如果写了属性的值,则按照写了的值
+
+9.实体引用实体
+格式：<!ENTITY 实体名称 "实体值">
+<!ENTITY TEST "HAHA">
+<name ID3="_123">&TEST;</name>浏览器显示HAHA
+注意：定义实体要写在内部DTD里面,写在外部DTD里面,某些浏览器内容得不到
+
+10.XML解析(重点：需要JAVA代码)。 DOMDemo有讲
+	10.1XML的解析方式:DOM(内存分配属性结构,内存消耗大),SAX(一行一行解析。读到标签开始时间开始,遇到标签结束事件结束,不能增删改)
+	10.2通过API方式提供的解析器
+		sun公司提供针对DOM和SAX提供解析器:jasp
+		dom4j组织针对DOM和SAX提供解析器:dom4j	(实际开发中用的最对)
+		jdom组织针对DOM和SAX提供解析器:jdom
+
+	10.3 JASP	JASP是JAVA SE的一部分 都在javax.xml.parsers包下
+		10.3.1 针对DOM的类：
+			DocumentBuilder：抽象类,不能new。通过DocumentBuilderFactory.newDocumentBuilder()得到实例
+				parse("xml路径"或者File对象) 返回是一个Document接口对象(就是整个文档),其父接口是Node。
+				Document包在org.w3c.dom包里。Document里面的方法和JavaScript方法是一样的。(getElementsByTagName("str"))
+				创建元素：createElement(String tagName)
+				创建文本：createTextNode(String data)
+				把文本添加到标签内:appendChild(Node newChilde)
+				获取父节点：getParentNode();
+
+				NodeList接口:getLength()，item(int index)
+				遍历：
+				for(int i=0 ; i<list.getLength();i++){
+					list.item(i);
+				}
+
+				node.getTextContent()
+				
+			DocumentBuilderFactory:抽象类。newInstance()获取本类实例
+		10.3.2(12) 针对SAX的类：SAXParser、SAXParserFactory
+			获得SAXParser实例的方法和获得DocumentBuilder实例方法一样
+			SAXParser实例的parse(File f, DefaultHandler dh)
+			File f:xml路径
+			DefaultHandler dh：事件处理器
+			10.3.2.1 DefaultHandler对象
+				3个方法：这3个方法都是自动执行的。SAX解析到标签头执行方法1，SAX解析到文本执行方法3，SAX解析到标签尾执行方法2
+				1.接收元素开始的通知。startElement(String uri, String loacalName,  String qName, Attributes attributes)
+				2.接收元素结束的通知。endElement(String uri, String localName, String qName)
+				3.接收元素中字符数据的通知。characters(char[] ch, int start, int length)
+				其中qName为标签名称
+11.schema约束
+	区别：
+	dtd：
+		1.dtd约束:<!ELEMENT 元素名称 约束>
+		2.dtd里面只有#PCDATA类型
+	schema：
+		0.1个XML只能有1个DTD,但是1个XML可以有多个schema(用名称空间,类似于包名来区分)
+		1.schema本身也是XML文件,也要遵循XML文件的
+		2.schema里面支持更多数据类型
+		3.schema是W3C的标准，语法更严谨，但更复杂，所以没有代替DTD。
+	11.1 创建schema文件,后缀名.xsd
+		schema文件的根节点就是schema
+		1）看XML中有多少个元素,就有多少个<element name=""></element>
+		2）复杂元素：
+			<element name="person">
+				<complexType>
+					<sequence>
+						子元素
+						<element name="name" type="string"></element>
+						<element name="age" type="int"></element>	
+					</sequence>
+				</complexType>
+			</element>	 
+			简单元素要在复杂元素的<sequence>里面	
+		3）在XML中引入schema文件
+			xmlns:xsi,xmlns,xsi:schemaLocation三个属性
+			<person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns="http://www.example.org/demo11_schema"
+			xsi:schemaLocation="http://www.example.org/demo11_schema demo11_schema.xsd">
+			其中xmlns:xsi中的xsi为别名，什么名字都可以，用来区分下面那个xmlns
+			
+			引入多个schema文件
+			<company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns="http://www.huyuoni.com/company"
+			xmlns:dept="http://www.huyuoni.com/department"
+			xsi:schemaLocation="http://www.huyuoni.com/company company.xsd 
+			http://www.huyuoni.com/department department.xsd">
+			
+			其中compay有name标签,department也有name标签。但是department有别名dept，所以
+			<dept:name>HR</dept:name>
+			<name>张三</name>
+	11.2
+		在<complexType>标签中
+		<sequence>表示元素是按顺序,顺序里面有2个name,1个age就必须按照2个name1个age的顺序
+		<all>标签内元素只能出现一次。但是没有顺序
+		<choice>元素只能出现其中的一个
+		属性maxOccurs="unbounded"元素没有次数限制 ，maxOccurs="2"最多出现2次
+		<any></any>标签可以是任意元素,标签里面没有内容.
+		属性定义的约束(必须是复杂元素)：
+		1.写在</complexType>前面	name：属性的名称	type：属性的数据类型	use：属性是否必须出现required表示必须出现
+
+12(10.3.2).SAX解析的原理
+
+13.使用DOM4J解析XML
+	DOM4J不是JAVA SE的一部分。需要导入dom4j提供的jar包
+	1.在需要的工程里面新建文件夹lib，把jar包复制到lib目录下。
+	2.右键jar包,build path->add to build path。完成。Demo工程下就有个奶瓶形状的jar包。
+	下载到的jar包一般打开docs文件夹中的index.html和查看API文档来查看jar功能。
+	这里打开index.html.然后右边的quick start可以查看源代码。
+	13.1 得到Docuemnt
+		SAXReader reader  =  new SAXReader();
+		Document document = reader.read(url/File/路径);
+	13.2 Document的父接口是Node
+		 Document的方法：Element getRootElement();
+	13.3 Element的父接口也是Node
+		 Element的方法：Element getParent();
+		 			 Element addElement(qName,namespaceURI)
+	13.4 使用DOM4J对XML进行增删改查
+		deom14~demo
+		
+	13.5 使用DOM4J支持的XPath操作。
+		 前面的都是要先获取根节点，然后获取直接子节点。如果有100层的话则很麻烦。这时候需要用到XPath操作
+		XPath：直接获取到某个元素,不需要一层一层的解析。
+		13.5.1
+			第一种书写形式：/
+				取第一层:/AAA
+				取第二层：/AAA/CCC	代表AAA元素下的CCC元素
+				取第三层：/AAA/DDD/BBB	获取AAA下的DDD下的BBB元素 
+			第二种书写形式：//
+				//BBB:不管哪一层只要名称是BBB都可以得到
+				//DDD/BBB:不管哪一次层的DDD下的BBB都可以得到
+			第三种书写形式：*
+				//AAA/BBB/*：表示名称是AAA元素下的BBB元素下的全部元素
+				/*/*/*/BBB:第四层是BBB的元素
+				//*:全部元素
+			第四种书写形式：[1]/[last()]
+				/AAA/BBB[1]:AAA下的第一个BBB元素
+				/AAA/BBB[last()]：AAA下的最后一个BBB元素
+			第五种书写形式：
+				//@id：得到全部标签上有id属性的元素
+				//BBB[@id]:得到所有的有id属性的BBB标签(以后工作中经常用到)
+				//BBB[@name]:得到所有有name属性的BBB标签
+			第六种书写形式：
+				//BBB[@id='b1']:得到所有id值为b1的BBB标签
+				//BBB[@name="bbb"]:得到所有name值为bbb的BBB标签
+		13.5.2	使用XPath
+			默认情况下dom4j不支持XPath。
+			13.5.2.1 需要引入支持XPath的jar包。在dom4j-1.6.1/lib/jaxen-1.1-beta-6.jar
+			13.5.2.2 DOM4J提供2个方法用来支持XPath
+				selectNodes("xpath表达式")		获取多个节点
+				selcetSingleNode("xpath表达式")	获取单个节点

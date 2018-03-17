@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+table a:link,a:visited{
+	color: #179ed9;
+	text-decoration: none;
+}
+table a:hover{
+	color: #f30621;
+}
+table img{
+/* 	把鼠标的形状改成手指的形状 */
+	cursor: pointer;
+}

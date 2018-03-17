@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="createtable.js"></script>
+<link rel="stylesheet" href="createtable.css" type="text/css" />
+</head>
+<body>
+	<!-- 
+		在页面中创建1个5行6列的表格
+		1.事件源，比如说按钮
+		2.必须有一个生成表格节点存储位置
+	 -->
+	 行：<input type="text" name="rownum"/>列：<input type="text" name="colnum"/>
+	 <input type="button" value="创建表格" onclick="createTable()" name="createButton" />
+	 <hr/>
+	 <input type="text" name="delrow"/><input type="button" value="删除行" onclick="delRow()" /> 
+	 <br/>
+	 <input type="text" name="delcol"/><input type="button" value="删除列" onclick="delCol()"/> 
+	 <hr/>
+	 <input type="text" name="delcell"/><input type="button" value="删除单元格" onclick="delCell()"/>
+	 <div id="table"></div><!-- 用来存放表格 -->
+</body>
+</html>

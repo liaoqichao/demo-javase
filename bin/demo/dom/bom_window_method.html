@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		演示window中的常见方法
+		alert()
+		confirm()//确认框
+		prompt()//输入对话框
+		open()//打开一个新窗口
+		close()//关闭，会提出是否关闭的confirm。浏览性兼容性差
+	 -->
+	 <script type="text/javascript" src="out.js"></script>
+	 <script type="text/javascript">
+	 	var timeID;
+	 	function windowMethodDemo(){
+	 		
+	 		//setTimeout，setInterval
+// 	 		var b = confirm("你真的确定要点击吗?");
+// 	 		alert("b="+b);
+
+// 			setTimeout("alert('time out run')",4000);//4秒后执行前面的语句,只执行一次
+			timeID = setInterval("alert('Interval run')",3000);//每4秒执行一次,
+			//setTimeout和setInterval都会返回一个timeID值可以通过clearInterval(timeID取消);timeID要全局，
+// 			应该停止操作在另一个函数
+
+
+	 	}
+	 	function stopTime(){
+	 		//清楚定时器
+	 		clearInterval(timeID);
+	 	}
+	 	function windowMove(){
+	 		
+	 		// 			moveBy(x,y);移动x,y个距离;
+	 		// 			moveTo(x,y);移动到x,y坐标;
+	 		// 			resizeBy(宽,高);改变浏览器大小
+	 		// 			resizeTo(宽,高);
+	 		
+	 		for(var x=0 ;x<50 ;x++){		//速度好快,效果相当于QQ的抖窗,360浏览器测试不了,要用IE浏览器
+	 			moveBy(20,0);
+	 			moveBy(0,20);
+	 			moveBy(-20,0);
+	 			moveBy(0,-20);
+	 		}
+	 	}
+	 	function windowOpen(){
+// 	 		param1	打开的url
+// 	 		param2	打开方式 "_blank"代表新窗口打开
+//			param3	高,宽,是否带状态栏,工具栏,菜单栏,地址栏
+	 		open("ad.html","_blank","height=400,width=600,status=yes,toolbar=yes,menubar=yes,location=yes");
+	 		//没有状态栏，工具栏，菜单栏和地址栏就是传说中的广告,这句话放到函数外面就不用点击,变成自动弹出来的广告
+	 	}
+	 </script>
+	 <input type="button" value="演示window中的常见方法" onclick="windowMethodDemo()"/>
+	 <input type="button" value="停止" onclick="stopTime()"/>
+	 <input type="button" value="浏览器窗口移动" onclick="windowMove()"/>
+	 <input type="button" value="浏览器打开窗体" onclick="windowOpen()"/>
+</body>
+</html>

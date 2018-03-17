@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.example.org/demo11_schema"
+xsi:schemaLocation="http://www.example.org/demo11_schema demo11_schema.xsd"
+id1="123">
+<!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"表示是被约束的文件 -->
+<!-- xmlns=schema中targetNamespace的值 -->
+<!-- xsi:schemaLocation="targetNamespace的值 文件的路径地址(location)"> 注意namespace和location中间有空格-->
+	<name>张三</name>
+	<age>20</age>
+</person>

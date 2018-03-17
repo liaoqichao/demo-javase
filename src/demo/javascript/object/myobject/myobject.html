@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>自定义对象</title>
+</head>
+<body>
+	<script type="text/javascript" src="../../out.js"></script>
+	<script type="text/javascript">
+// 			js是基于对象不是面向对象,不具备描述对象的能力
+// 			可以用函数来模拟面向对象中的描述
+			//用函数来描述Person
+			function Person(){	//相当于构造器 ,P可以大写也可以小写
+				alert("Person run.");
+			}
+			
+			// 自定义对象方法1：
+			var p = new Person();
+			//动态给对象添加属性,直接p.属性名
+			p.name = "张三";
+			p.age=23;
+			//给p对象添加方法
+			p.show = function(){	
+				println("show ："+this.name +":"+this.age);
+			}
+			//调用方法
+			p.show();
+			
+			println("<hr/>");
+			function Object(){
+				
+			}
+			var obj = new Object();
+			obj.name = "god";
+			obj.age = 2015;
+			obj.show = function(){
+				println(this.name+"::"+this.age);
+			}
+			obj.show();
+			
+			//自定义对象方法2：
+			function NewPerson(name,age){	//不明确值
+// 				this.name = name;
+// 				this.age = age;
+				this.setName = function(name){
+					this.name = name;					
+				}
+				this.getName = function(){
+					return this.name;
+				}
+				
+				this.setAge = function(age){
+					this.age = age;
+				}
+				this.getAge = function(){
+					return this.age;
+				}
+			}
+			var p = new NewPerson("abc",15);//这里的参数没用
+			p.setName("小强");
+			println(p.getName());//小强,没有setName的话,用参数"abc"是undifined
+			
+			for(x in p){	//可以遍历
+				println(x+":"+p[x]);
+// 				setName:function(name){ this.name = name; }
+// 				getName:function(){ return this.name; }
+// 				setAge:function(age){ this.age = age; }
+// 				getAge:function(){ return this.age; }
+// 				name:小强
+
+			}
+			
+			//自定义对象方法3：
+			var pp ={	
+			//大括号里面封装键值对,每对之间用逗号隔开, 明确值. 可以用这个方法实现map集合
+// 			数组的话键就是按顺序的整数,map的键可以没顺序,可以不是整数
+				//定义一些成员
+				"name":"小明","age":38,		
+				"getName":function(){		
+					return this.name;		
+				}		
+			//键不加双引号也可以,name:"小明"，。建议不加双引号
+			//p.name既能调用"name"的值也能调用name的值
+			//值也可以是数组。names:["a","b"]调用1个数组元素的时候p.names[1]="b";
+			//不要用分号结束
+			}
+			println(pp.name+" : "+pp.getName()+" : "+pp.age);//小明 : 小明 : 38
+			println(pp["name"]+" : "+pp["getName"]+" : "+pp["age"]);//小明 : function(){ return this.name; } : 38
+			
+			for(i in pp){
+				println(i+":"+pp[i]);//name:小明  age:38  getName:function(){ return this.name;
+			}
+			println("<hr/>");
+			//自定义的对象也有prototype属性,这样可以不断的向该对象添加新属性和方法
+			//定义名称规则。如果是实体,则名字前面加o,如：function oPerson(){} function oPerson = {key:value}
+// 			var bX = true; 代表布尔类型 var iN = 3;数字类型 var sB = "abc" s代表string类型
+
+			//方式2更多是在描述事物,对象多的时候用方式3。方式3描述的事物存在很多(多重?)映射关系,例如：
+			var oMyMap = {
+				names:[{name1:"zhangsan",name2:"lisi"},{myname:"hahaha"}]
+			}
+			println(oMyMap.names[0].name1);//zhangsan
+			println(oMyMap["names"][1]["myname"]);//hahaha
+
+	</script>
+</body>
+</html>

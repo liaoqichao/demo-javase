@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Math对象</title>
+</head>
+<body>
+	<script type="text/javascript" src="../../out.js"></script>
+	<script type="text/javascript">
+// 		Math对象的方法都是静态的,直接用类名调用
+// 		属性：E,PI,LN2,LN10,LOG2E,LOG10E,SQRT1_2,SQRT2
+// 		方法：random,abs,max,min,pow,ceil(上取整),floor(下取整),sqrt,三角函数和反三角函数
+// 		round(四舍五入),
+// 		假设保留2为小数,第三位小数位5,后面都是0的情况，小数点第二位为奇数则舍去5，小数点第二位为偶数,则进位
+// 		9.8243 = 9.82
+// 		9.8261 = 9.83
+// 		9.8250 = 9.83
+// 		9.8251 = 9.83
+// 		9.8350 = 9.83
+// 		9.8351 = 9.84
+		
+// 		var num1 = Math.floor((Math.random()*10+1));//0~1包括0不包括1, 1~10包括1包括10
+		var num1 = parseInt(Math.random()*10+1);	//parseInt叫做全局方法 是Global对象的方法
+		//Global对象是一个固有对象,目的是把所有全局方法集中在一个对象中.Gloabl对象的方法不需要对象引用或者类名来调用。
+// 		JS启动这些方法就自动存在
+		//Global属性：Infinity NaN
+		//Global对象:escape,eval,isFinite,isNaN,parseInt(数字字符串,[位置]),parseFloat,unescape
+		println(num1);//0.6800366253122394
+		var num2 = Math.pow(10,2);//100
+		println(num2);
+	</script>
+</body>
+</html>

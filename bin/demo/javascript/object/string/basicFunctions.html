@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String对象</title>
+</head>
+<body>
+	<script type="text/javascript" src="../../out.js"></script>
+	<script type="text/javascript">
+// 		定义的2中方式:
+// 		var str = new String("abc");
+// 		var str1 = "abc";
+
+// 		属性：constructor,length,prototype
+		var str = "abcde";
+		println(str);
+		println(str.bold());//加粗,相当于html中<b>abcde</b>
+		println(str.fontcolor("#00ffff"));//相当于<font color="..." >str</font>
+		println(str.link("http://www.163.com"));//把字符串变成超链接
+// 		replace,split
+		println(str.substr(1,3));//bcd		1是开始,3是长度
+		println(str.substring(1,3));//bc	包涵头不包含尾
+		println("log"+"2".sub()+"8=3");//下标如log2的2
+		println(2+"5".sup()+"=32");//上标如2^5 的5
+// 		toLowerCase toUpperCase 小写大写
+
+// 		与java相似的方法：charAt(num)、indexOf(str);还有其他和java一样的方法
+	</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>提交请求到服务器端的方式</title>
+</head>
+<body>
+
+</body>
+<!-- action 指定服务器端的位置(数据接收的目的地) 
+	 method的值有2个,get/post  method的默认值是get
+	 get提交和post提交的区别：
+	 1.
+	 get提交的信息都显示在地址栏中
+	 post提交的信息不显示在地址栏中
+	 2.
+	 get提交对于敏感的数据不安全。例如密码,直接明文显示到地址栏上
+	 post对于敏感信息安全
+	 3.
+	 get提交对于大数据不行,因为地址栏存储体积有限
+	 post提交可以提交大体积数据
+	 4.
+	 get提交,将信息封装到请求信息的请求行中
+	 post提交,将信息封装到请求信息的请求体中
+	 
+	 在服务器端的一个区别
+	 如果出现将中文提交到tomcat服务器(只认识ISO8859-1码表),服务器端会用ISO8859-1解码出现乱码。
+	 通过ISO8859-1进行编码,再用指定的中文码表解码即可。这种方式对post和get提交都有效
+	 
+	 但是对于post提交的中文,还有另一个解决方法,就是直接用服务器端的一个对象request对象的setCharacterEncoding方法直接
+	 设置指定的中文码表就可以将中文数据解析出来。这个方法只对请求体的数据进行解码
+	 
+	 综上,表单提交建议使用post
+	 
+	 和服务端交互的三种方式：
+	 1.地址栏输入url地址。get
+	 2.超链接。get
+	 3.表单。get 和  post
+	 
+	 
+	 如果在客户端进行增强型的校验(只要有1个组件内容不符合自定义规则,无法继续提交,要全对才可以提交)。服务器端收到数据后还需要校验码？
+	 需要,为了提高安全性。因为除了表单形式还有超链接和url形式可以与服务器端交互
+	 例如地址栏输入
+	 http://127.0.0.1:9090/?user=-_,-&password=12&repassword=34&sex=yao&tech=game&country=火星
+	 例如点开一个超链接。直接跳到注册成功的页面
+	服务器不校验的话也会注册成功。所以表单通常会加验证码
+	
+	如果服务器端做了增强型的校验,客户端还需要校验码？
+	需要,因为要提高用户上网体验，减轻服务器压力。(写对了,就不用给服务器校验)
+	 
+ -->
+ <!--
+ 提交方式：get提交
+ 地址栏
+ http://127.0.0.1:9090/?user=123&password=123&repassword=123&sex=male&tech=Java&tech=HTML&country=usa&other=
+ 
+ 127.0.0.1 is connected
+ 
+ 请求行
+GET /?user=123&password=123&repassword=123&sex=male&tech=Java&tech=HTML&country=usa&other= HTTP/1.1	
+请求消息头	
+Accept: application/x-ms-application, image/jpeg, application/xaml+xml, image/gif, image/pjpeg, application/x-ms-xbap, */*
+Accept-Language: zh-CN
+UA-CPU: AMD64
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 2.0.50727; SLCC2; .NET CLR 3.5.30729; .NET CLR 3.0.30729)
+Host: 127.0.0.1:9090
+Connection: Keep-Alive
+  
+请求体  
+  
+  -->
+<!-- 
+
+地址栏：http://127.0.0.1:9090/
+请求方式：post
+
+127.0.0.1 is connected
+
+请求行
+POST / HTTP/1.1
+请求消息头
+Accept: application/x-ms-application, image/jpeg, application/xaml+xml, image/gif, image/pjpeg, application/x-ms-xbap, */*
+Accept-Language: zh-CN
+Content-Type: application/x-www-form-urlencoded
+UA-CPU: AMD64
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 2.0.50727; SLCC2; .NET CLR 3.5.30729; .NET CLR 3.0.30729)
+Host: 127.0.0.1:9090
+Content-Length: 83
+Connection: Keep-Alive
+Cache-Control: no-cache
+
+请求体
+user=abc&password=123&repassword=123&sex=male&tech=HTML&tech=CSS&country=usa&other=
+-->
+	<form action="http://127.0.0.1:9090" method="post"><!-- 在这里指定服务器端 -->
+		<table border="1" bordercolor="#0000ff" cellpadding=10 cellspacing=0 width=500>
+			<tr>
+				<th colspan="2">注册表单</th>
+			</tr>
+			<tr>
+				<td>用户名:</td>
+				<td><input type="text" name="user" /></td>
+			</tr>
+			<tr>
+				<td>输入密码:</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<td>确认密码:</td>
+				<td><input type="password" name="repassword" /></td>
+			</tr>
+			<tr>
+				<td>性别:</td>
+				<td>
+					<input type="radio" name="sex" value="male" checked="checked"/>男
+					<input type="radio" name="sex" value="female" />女
+				</td>
+			</tr>
+			<tr>
+				<td>选择技术:</td>
+				<td>
+					<input type="checkbox" name="tech" value="Java"/>Java
+					<input type="checkbox" name="tech" value="HTML"/>HTML
+					<input type="checkbox" name="tech" value="CSS"/>CSS
+				</td>
+			</tr>
+			<tr>
+				<td>选择国家:</td>
+				<td>
+					<select name="country">
+						<option value="none">--选择国家--</option>
+						<option value="usa">美国</option>
+						<option value="uk">英国</option>
+						<option value="cn">中国</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" ><div><font size="2">其他:</font></div>
+				<textarea rows="5" cols="55" name="other"></textarea></td>
+			</tr>
+			<tr>
+				<th colspan="2">
+					<input type="reset" value=" 重 置 " />
+					<input type="submit" value=" 提 交 "/>
+				</th>
+			</tr>
+		</table>
+	</form>
+</html>

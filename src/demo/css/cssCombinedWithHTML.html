@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML CSS</title>
+	<!-- type=text/CSS 启动CSS引擎解析style区域里面的文本  因为通常需要先加载,所以放在头部
+		 这里的div是对html里面的所有div进行设置
+	-->
+<!-- 	方式4  -->
+		<link rel="stylesheet" href="cssCombinedWithHTML.css" type="text/css"/>
+	<style>
+		/*方式3_2*/
+/* 		@IMPORT url("cssCombinedWithHTML.css"); */
+		/*方式3_1
+		@import url(div.css);
+		@import url(span.css);
+		*/
+	</style> 
+	<!-- 方式2-
+		<style type="text/css">
+			div{
+				background-color: #000;
+				color:#fff
+			}
+		</style>
+	-->
+</head>
+<body>
+	<!-- 
+		和CSS相结合的方式
+		1.(多个div时复用性差)每一个HTML标签中都有一个style样式属性 ,键值用冒号隔开,多属性的时候用分号隔开。该属性的值就是CSS代码
+		如：background-color: #0066ff 就是CSS代码.
+		2.(多个网页是复用性差)使用style标签的方式，一般都定义在, <head>中
+		3.把CSS代码做成一个文件,每个网页都调用这个文件。用方式2的话,如果N个网页都需要这个样式,那样头部的代码要复制N遍。
+		  把多个CSS文件用1个CSS代码@import起来,这样网页只用<style>@import 1个CSS文件</style> 
+		  这样不需要改HTML的代码,只需要改CSS代码
+		4.<link ral="样式表" href="CSS文件地址" type="text/css"/>
+	-->
+	<div style="background-color: #0066ff;color: #ff0000">这是一个div区域1</div><!-- 覆盖了头部加载的样式 ,这叫做样式的层叠 -->
+	<div>这是一个div区域2</div>
+	<div>这是一个div区域3</div>
+	<div>这是一个div区域4</div>
+	<div>这是一个div区域5</div>
+	<span>这是一个span区域1</span>
+	<span>这是一个span区域2</span>
+	<p>这是段落1</p>
+	<p>这是段落2</p>
+
+</body>
+</html>

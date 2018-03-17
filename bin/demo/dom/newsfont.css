@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+/* 超链接访问后样式一样 */
+a:link,a:visited{	//超链接有link未访问，hover鼠标悬停，active点击的瞬间，visited访问后4个状态
+	text-decoration: none;
+	color:#00ccff;	/*放在第一句字体颜色为什么不变*/	
+}
+a:hover{
+	color:#ff8040;
+}
+#newstext{	/*因为一个页面有很多div标签,所以不能用div*/
+	width:500px;
+	border:#00ff00 solid 1px;
+	padding:10px;
+}
+
+/* 预定义类选择器 */
+.norm{
+	color: #000000;
+	font-size:16px;
+	background-color: #cdd8d0;
+}
+.max{
+	color:#808080;
+	font-size:28px;
+	background-color: #9ce9b4;
+}
+.min{
+	color:#ffffff; 
+	font-size: 12px;
+	background-color: #f1b96d;
+}

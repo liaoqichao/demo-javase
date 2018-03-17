@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+table{
+/* 	border-bottom-style:hidden; */
+	border:#0080ff solid 1px;
+	width:500px;
+	border-collapse: collapse;
+}
+table th{
+	background-color: rgb(200,200,200);
+}
+table td,th{
+	border:#0080ff solid 1px;
+	padding:10px;
+}
+
+.one{
+	background-color: #e1e16a;
+}
+.two{
+	background-color: #75f094;
+}
+.over{
+	background-color: #afe4fc;
+}

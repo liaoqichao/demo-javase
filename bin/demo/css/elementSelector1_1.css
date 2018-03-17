@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+/*关联选择器 ——选择器中的选择器*/
+span b{
+	/*span a b img  span标签中的a标签中的b标签的中img标签*/
+	background-color: #140341;
+	color:#f7dc5e
+}
+/*组合选择器——对多个选择器进行相同样式定义。用逗号分开选择器,*/
+
+.A,div b{
+	background-color: #ff0000;
+	color:#0000ff
+}

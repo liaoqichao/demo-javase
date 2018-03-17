@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表格</title>
+</head>
+<body>
+	<!-- 	
+			cellpadding单元格内边距
+	 -->
+	 <table border=1 cellpadding=10 width=500 >
+	 <!-- <caption></caption>表格的标题 -->
+	 <caption style="font-size: 100px">浪里个浪</caption>
+	 	<tbody><!-- 网页加载的时候会分TBODY加载,如果一个网页由1TABLE组成,没有TBODY,加载的时候要全部加载完才显示出来
+	 				表格的下一级标签是TBODY，不定义也存在。那THEAD不定义存在吗? -->
+	 		<!-- tr中的align属性center,left,right居中，最左最右 -->
+		 	<tr align="right">
+		 		<th rowspan=2>个人信息</th> <!-- rowspace 行合并单元格 -->
+		 		<td>张三</td>
+		 	</tr>
+		 	<tr>
+		 		<td>39</td>
+		 	</tr>
+	 	</tbody>
+	 </table>
+	 <br/><hr/>
+	 <table border=1 bordercolor="#0000ee" cellpadding = 10 cellspacing=0 width=500>
+	 	<tr>
+	 		<th colspan=2>个人信息</th><!-- colspan 列合并单元格 -->
+	 	</tr>
+	 	<tr>
+	 		<td>张三</td>
+	 		<td>30</td>
+	 	</tr>
+	 </table>
+	 <br/><hr/>
+	 <table border=1 bordercolor="#0000ee" cellpadding = 10 cellspacing=0 width=500>
+	 	<caption>表格标题</caption>
+	 			<tr>				<!-- 行 -->
+	 					<th>姓名</th>	<!-- 单元格 ,th是加粗并居中-->
+	 					<th>年龄</th>
+	 			</tr>
+	 			<tr>
+	 				<td>李四</td>
+	 				<td>39</td>
+	 			</tr>
+	 			<tr>
+	 				<td>张三&nbsp;&nbsp;</td><!-- 单元格 -->
+	 				<td>15</td>
+	 			</tr>
+	 </table>
+</body>
+</html>

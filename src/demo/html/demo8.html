@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单标签</title>
+</head>
+<body>
+<!-- 表单标签 	表单是最常用的标签,用于与服务器端交互 <form></form>
+	通过input标签输入,输入类型type有以下值
+		1.text		文本框(明文)
+		2.password	文本框(非明文)
+		3.radio		单选框
+		4.checkbox	复选框
+		5.reset		把表单所有属性回到初始化状态
+		6.submit	提交数据到服务器端
+		7.file		选择文件
+		8.image		效果和提交一样.但是有图片比较美观
+		9.hidden	隐藏组件(不显示给客户端,但数据可能要提交到服务器端)
+		10.button	自定义按钮(只是事件源,还要注册事件动作)
+	select			下拉菜单
+	textarea		文本区域
+	
+	
+	<!-- image 点击图片具备提交效果 就是漂亮的提交  
+		<form>
+			<input type="image" src="1.jpg" /><br/>
+		</form>
+	-->
+	<!--button 要注册动作,例如onclick  
+		<form>
+			<input type="button" value="有个按钮" onclick="alert('弹出按钮')"/><br/>
+		</form>
+	 -->
+	<!-- 
+		提交的时候要让服务器识别属性 每个表单的组件都要有name(键的名字)和value属性(键的值) ,没有值则默认传输输入的信息到服务器端
+		如果是单选框或者复选框的话就要指定值.不然值传输名不没传输值到服务器端 
+	-->
+	
+	<!-- 
+		<input type="hidden"/>隐藏项存在于代码中,但不会在页面显示
+	 -->
+	<form method="get">
+	<!-- 
+		form有action属性,其值是提交到的目的路径,默认提交到当前页面
+		method属性：
+		1.get(地址栏带数据),post(数据在http协议的请求体里面)
+		2.get:安全级别低而post:安全级别高
+		3.get请求数据大小有限制，post没有限制
+		enctype：文件上传时用到
+	-->
+	<!-- 如果要提交数据到服务器端 表单的每个组件必须有name和value属性.用于给服务器端获取数据方便的-->
+		<table border="1" bordercolor="#0000ff" cellpadding=10 cellspacing=0 width=600>
+		<!-- 8行2列, 8个<tr> 每个tr都有2个<td> -->
+			<tr>
+				<th colspan=2>注册表单</th>
+			</tr>
+			<tr>
+				<td>
+					用户名称：
+				</td>
+				<td>
+					<input type="text" name="user" />
+				</td>
+			</tr>
+			<tr>
+				<td>输入密码：</td>
+				<td>
+					<input type="password" name="password" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					确认密码：
+				</td>
+				<td>
+					<input type="password" name="repassword" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					选择性别：
+				</td>
+				<td>
+					<input type="radio" name="sex" value="male" checked="checked"/>男	<!-- 值默认为选择的内容 -->
+					<input type="radio" name="sex" value="female"/>女
+	<!-- 如果name的值一样,说明这些单选框是同1个组。同1个组,单选框只能单选。 如果没有组(name)点击点选框不会有黑点 -->
+				</td>
+			</tr>
+			<tr>
+				<td>
+					选择技术:
+				</td>
+				<td>
+					<input type="checkbox" name="tech" value="Java"/>Java
+					<input type="checkbox" name="tech" value="HTML"/>HTML
+					<input type="checkbox" name="tech" value="CSS"/>CSS
+				</td>
+			</tr>
+			<tr>
+				<td>
+					选择国家:
+				</td>
+				<td>
+					<select name="country">
+						<option value="none">--选择国家--</option>
+						<option value="usa">美国</option>
+						<option value="uk">英国</option>
+						<option value="cn">中国</option>
+						<!-- 默认是selected input的默认是checked -->
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					&nbsp;
+				</td>
+				<td>
+					上传文件：<input type="file"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					<textarea rows="10" cols="65" name=textarea></textarea>
+				</td>
+			</tr>
+			<tr >
+				<th colspan=2>
+					<input type="reset" value=" 重 置 "/>
+					<input type="submit" value=" 提 交 "/>
+				</th>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

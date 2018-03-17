@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date对象和With语句 </title>
+</head>
+<body>
+	<script type="text/javascript" src="../../out.js"></script>
+	<script type="text/javascript">
+// 		Date对象  中括号为选填
+// 		dateObj = new Date();
+// 		dateObj = new Date(dateVal);
+// 		dateObj = new Date(year,month,date[,hours[,minutes[,seconds[,ms]]]]);
+// 		month：0~11 代表1~12月
+		var date = new Date();
+		println(date);//Fri Sep 4 13:06:54 UTC+0800 2015
+		
+// 		属性：constructor 、 prototype
+// 		方法：各种get、set部分单独日期(年，月，日),toLocaleString,toLocaleDateString
+		println(date.toLocaleString());	//2015年9月4日 13:09:54
+		println(date.toLocaleDateString());//2015年9月4日
+		
+// 		为了简化对象调用内容的书写，可以调用js中特有语句with来完成。
+// 		格式：with(对象){
+// 			在该区域中可以直接使用指定对象的内容,不需要写"对象.""
+// 		}
+		
+		with(date){
+			var year =getFullYear();
+			var month = getMonth()+1;
+			var dayOfMonth = getDate();
+			var dayOfWeek = getDayOfWeek(getDay());
+		}
+// 		var year = date.getFullYear();//getYear已过时
+// 		var month = date.getMonth()+1;
+// 		var dayOfMonth = date.getDate();//返回月中的某一天
+// 		var dayOfWeek = date.getDay();//返回一个星期中的某一天
+		println(year+"年"+month+"月"+dayOfMonth+"日，"+dayOfWeek);//2015
+		function getDayOfWeek(num){
+			var week =["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+			return week[num];
+		}
+		
+		println("<hr/>");
+		
+		//日期对象和毫秒值之间的转换
+		var date1 = new Date();
+		//日期对象->毫秒值
+		var time1 = date1.getTime();
+		println(time1);
+		//毫秒值->日期对象
+		//1.new Date(time)，2.setTime(time)
+		var date2 = new Date(time1);
+		println(date2.getTime());
+		
+// 		日期对象和字符串之间的转换
+// 		parse(str)返回与1970-1-1 00：00之间的毫秒值。 是Date的一个静态方法
+// 		str = "年-月-日"; "月/日/年";
+//		1.日期对象->字符串	toLocaleString toLocaleDateString
+// 		2.字符串->日期对象	指定格式字符串->毫秒值->日期对象
+		var str_date = "9/28/17"	//17代表1917年，9代表9月不是10月
+		var time2 = Date.parse(str_date);
+		var date3 = new Date(time2);
+		println(date3.toLocaleDateString()+" "+getDayOfWeek(date3.getDay()));
+	</script>
+</body>
+</html>

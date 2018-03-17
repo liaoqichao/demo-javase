@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>函数,数组练习</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//建一个JavaScript文件,然后导入这个文件就可以使用里面的方法
+// 		综合练习：
+// 		1.定义功能,完成数组的最值获取
+// 		2.对数组排序
+// 		3.对数组查找	根据关键字找下标
+// 		4.反转数组元素
+
+		//1.
+		function getMax(arr){
+			
+			var max = arr[0];
+			for(var i=1;i<arr.length;i++){
+				if(arr[i]>max){
+					max = arr[i];
+				}
+			}
+			return max;
+		}
+		var arr =[-2,-3,-4,-5,-1];
+		document.write("max="+getMax(arr));//max=-1
+		document.write("<br/>");
+		
+		//2.
+		function mySort(arr){
+			for(var i=0;i<arr.length-1;i++){
+				for(var j=1;j<arr.length-i;j++){
+					if(arr[j-1]>arr[j]){
+						arr[j-1]=arr[j-1]^arr[j];
+						arr[j]=arr[j-1]^arr[j];
+						arr[j-1]=arr[j-1]^arr[j];
+					}
+				}
+			}
+			return arr;
+		}
+		var arr1 = [2,4,1,5,3];
+		document.write(mySort(arr1)+"<br/>");
+		
+		//3.
+		function search(arr,key){
+			
+			for(var i=0; i<arr.length ;i++){
+				if(arr[i]==key)
+					return i;
+			}
+			return -1;
+		}
+		document.write(search(arr1,3)+"<br/>");
+		
+		//3.1 折半查找
+		function binarySearch(arr,key){
+			var max,min,mid;
+			min = 0;
+			max = arr.length-1;
+			while(min<=max){
+				mid = (max+min)>>1;
+				if(key>arr[mid])
+					min = mid + 1;
+				else if(arr[mid]>key)
+					max=mid-1;
+				else
+					return mid;
+			}
+			return -1;
+		}
+		var arr22 = [2,4,6,8,10];
+		alert(binarySearch(arr22,8));
+
+		//4.反转元素
+		function reverse(arr){
+// 			for(var start=0,end=arr.length-1;	start<end;	start++,end--){
+// 				arr[start] = arr[start]+arr[end];
+// 				arr[end] = arr[start]-arr[end];
+// 				arr[start] = arr[start]-arr[end];
+// 			}
+			for(var i=0; i<(arr.length-1)/2;i++){//不减1的话,奇数个元素,最后自己和自己交换结果会变为0
+				//在java不用减一,应为5/2=2  2<2跳出循环。 但这里变量时弱类型。2<2.5没有跳出循环
+				arr[i] = arr[i] ^ arr[arr.length-1-i];	//A[2] = 3 + 3;
+				arr[arr.length-1-i] = arr[i] ^ arr[arr.length-1-i];//A[2]=6-6
+				arr[i] = arr[i] ^ arr[arr.length-1-i];//A[2] = 0-0
+			}
+			return arr;
+		}
+		var arr3 = [1,2,3,4,5,6];
+		var arr4 = [1,2,3,4,5];
+		document.write(reverse(arr4)+"<br/>");
+	</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+#contentid{
+	display: none;
+}
+#no1ul{
+	list-style: none;
+	margin:0px;
+}
+.close{
+	display:none;
+}
+.open{
+	display:block;
+}

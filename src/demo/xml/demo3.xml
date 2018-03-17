@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE person SYSTEM "demo3.dtd">
+<!-- <!DOCTYPE person [ -->
+<!-- 	<!ELEMENT person (name,age)> -->
+<!-- 	<!ELEMENT name (#PCDATA)> -->
+<!-- 	<!ELEMENT age (#PCDATA)> -->
+<!-- ]> -->
+<person>
+	<name>张三</name>
+	<name>李四</name>
+	<age>20</age>
+	<sex></sex>
+	<sex></sex>
+	<sex></sex>
+	<school>a</school>
+<!-- 	<aaa>111</aaa> 会报错
+		元素换顺序也会报错。要按照复杂元素的约束的顺序
+-->
+</person>

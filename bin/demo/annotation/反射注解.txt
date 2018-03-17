@@ -1,0 +1,20 @@
+反射注解
+
+1. 要求
+  * 注解的保留策略必须是RUNTIME
+
+2. 反射注解需要从作用目标上返回
+  * 类上的注解，需要使用Class来获取
+  * 方法上的注解，需要Method来获取
+  * 构造器上的注解，需要Construcator来获取
+  * 成员上的，需要使用Field来获取
+
+  Class
+  Method、Constructor、Field：AccessibleObject
+
+  它们都有一个方法：
+  * Annotation getAnnotation(Class)，返回目标上指定类型的注解！
+  * Annotation[] getAnnotations()，返回目标上所有注解！
+
+
+

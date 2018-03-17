@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript demo1</title>
+</head>
+<body>
+	<!-- 
+		HTML和JavaScript结合的方式
+		1.将JS代码封装到script标签中
+		2.将JS代码封装到JS文件中,并通过Script标签中的src属性进行导入
+		
+		注意：如果Script标签中使用了SCR属性,那么标签中的JS代码不会被执行,只执行SRC对应的JS文件
+			所以通常导入JS文件都是用单独的script标签完成
+		 
+	-->
+	<!-- 导入JS文件 -->
+	<script type="text/javascript" src="combineWithHTML.js"></script>
+	<!-- 封装JS代码 -->
+	<script type="text/javascript">
+		alert("Hello JavaScript");
+	</script>
+</body>
+</html>

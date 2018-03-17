@@ -1,0 +1,55 @@
+java.runtime.name :: Java(TM) SE Runtime Environment
+sun.boot.library.path :: C:\Program Files\Java\jre7\bin
+java.vm.version :: 24.51-b03
+java.vm.vendor :: Oracle Corporation
+java.vendor.url :: http://java.oracle.com/
+path.separator :: ;
+java.vm.name :: Java HotSpot(TM) 64-Bit Server VM
+file.encoding.pkg :: sun.io
+user.script :: 
+user.country :: CN
+sun.java.launcher :: SUN_STANDARD
+sun.os.patch.level :: Service Pack 1
+java.vm.specification.name :: Java Virtual Machine Specification
+user.dir :: E:\Eclipse\workspace\Demo
+java.runtime.version :: 1.7.0_51-b13
+java.awt.graphicsenv :: sun.awt.Win32GraphicsEnvironment
+java.endorsed.dirs :: C:\Program Files\Java\jre7\lib\endorsed
+os.arch :: amd64
+java.io.tmpdir :: C:\Users\ADMINI~1\AppData\Local\Temp\
+line.separator :: 
+
+java.vm.specification.vendor :: Oracle Corporation
+user.variant :: 
+os.name :: Windows 7
+sun.jnu.encoding :: GBK
+java.library.path :: C:\Program Files\Java\jre7\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;E:\JDK\jdk1.7.0_51\bin;E:\JDK\jdk1.7.0_51\jre\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;;.
+java.specification.name :: Java Platform API Specification
+java.class.version :: 51.0
+sun.management.compiler :: HotSpot 64-Bit Tiered Compilers
+os.version :: 6.1
+user.home :: C:\Users\Administrator
+user.timezone :: 
+java.awt.printerjob :: sun.awt.windows.WPrinterJob
+file.encoding :: GBK
+java.specification.version :: 1.7
+user.name :: Administrator
+java.class.path :: E:\Eclipse\workspace\Demo\bin
+java.vm.specification.version :: 1.7
+sun.arch.data.model :: 64
+java.home :: C:\Program Files\Java\jre7
+sun.java.command :: demo.Demo
+java.specification.vendor :: Oracle Corporation
+user.language :: zh
+awt.toolkit :: sun.awt.windows.WToolkit
+java.vm.info :: mixed mode
+java.version :: 1.7.0_51
+java.ext.dirs :: C:\Program Files\Java\jre7\lib\ext;C:\Windows\Sun\Java\lib\ext
+sun.boot.class.path :: C:\Program Files\Java\jre7\lib\resources.jar;C:\Program Files\Java\jre7\lib\rt.jar;C:\Program Files\Java\jre7\lib\sunrsasign.jar;C:\Program Files\Java\jre7\lib\jsse.jar;C:\Program Files\Java\jre7\lib\jce.jar;C:\Program Files\Java\jre7\lib\charsets.jar;C:\Program Files\Java\jre7\lib\jfr.jar;C:\Program Files\Java\jre7\classes
+java.vendor :: Oracle Corporation
+file.separator :: \
+java.vendor.url.bug :: http://bugreport.sun.com/bugreport/
+sun.cpu.endian :: little
+sun.io.unicode.encoding :: UnicodeLittle
+sun.desktop :: windows
+sun.cpu.isalist :: amd64

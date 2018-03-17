@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>超链接标签</title>
+</head>
+<body>
+	<!-- 超链接
+	有href的属性才有点击效果
+	
+	href没有值会默认打开html文件的当前目录
+	
+	如果href的值没有指定任何协议,解析按照默认的协议来解析该值。默认协议是file协议
+	作用：链接资源 -->
+	<a name="top">顶部位置</a>
+	<a href="http://www.sina.com.cn" target="_blank">新浪网站</a>
+	<!-- 要指定协议，  _blank是新窗口,默认值是_type(当前窗口打开)--><hr/>
+	<a href="imgs/3A.png">超链接图片</a><hr/>
+	<a href="mailto:abc@sina.com">联系我们</a><!-- mailto:协议浏览器一般解析不了,找电脑里面邮件软件,这里木有安装 --><hr/>
+	<a href="http://down.qq.com/lol/dltools/LOL_V3.1.6.1_FULL_TDL_signed.exe">lol极速下载器下载下载</a>
+	<a href="thunder://abcderf==">迅雷下载</a><!-- 迅雷的自定义协议 -->
+	<hr/>
+	<a href="javascript:void(0)" onclick="alert('我弹')">这是一个超链接</a>
+	<!-- 自定义打开超链接效果
+	取消超链接效果：
+	1.href="#" 不推荐
+	2.href="javascript:void(0)"
+	
+	javascript:void(0) 是取消默认效果(打开html文件当前目录),后面可以加属性来实现自己想要的效果,
+	例如 ：onclick="alert('我弹')"  点击出现弹窗-->
+	
+	<!-- 超链接作用2：定位标记。锚 -->
+	<hr/>
+	<a name="center">中间位置</a>
+	<!-- 超链接应用2 link -->
+	<img src="1.jpg" height=500 width=400 border=10></img>
+	<br/>
+	<a href="#top">回到顶部</a><!-- 没有#的话会认为是文件 -->
+	<a href="#center">回到中间</a>
+	<!-- #是定位资源,搭配a标签中的name属性 -->
+</body>
+</html>

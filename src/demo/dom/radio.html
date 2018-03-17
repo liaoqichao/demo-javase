@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>单选按钮radio——问卷调查和性格测试</title>
+<link rel="stylesheet" href="radio.css" type="text/css"/>
+<script type="text/javascript" src="radio.js"></script>
+</head>
+<body>
+	<!-- 
+		单选按钮演示
+		1.是否参与调查问卷
+		2.性格测试
+	 -->
+	<!-- 性格测试 -->
+	<h2>欢迎进行性格测试：</h2>
+	<div>
+	<h3>第一题：</h3>
+	<span>您喜欢的水果?</span>
+	<ul id="no1ul">
+		<li><input type ="radio" name="no1" value="1"/>葡萄</li>
+		<li><input type ="radio" name="no1" value="2"/>西瓜</li>
+		<li><input type ="radio" name="no1" value="3"/>苹果</li>
+		<li><input type ="radio" name="no1" value="4"/>芒果</li>
+		<li><input type ="radio" name="no1" value="5"/>樱桃</li>
+	</ul>
+	</div>
+	<div>
+	<input type="button" value="查看测试结果" onclick="showResult()"/>
+	<span id="errorinfo"></span>
+	<div id="score"></div>
+	<div id="result_1" class="close">1-3分：您的性格内向并扭曲,建议...-_,-</div>
+	<!-- CLASS 类。css中.close类选择器 -->
+	<div id="result_2" class="close">4分以上：您的性格外向并分裂,建议...-_,-</div>
+	</div>
+	 <hr/>
+	 
+	 
+	<!-- 问卷调查-->
+		<div>
+			您要参与问卷调查吗：<input type="radio" name="wenjuan" value="yes" onclick="showContent(this)"/>是
+			<input type="radio" name="wenjuan" value="no"  checked="checked" onclick="showContent(this)"/>否
+		</div>
+		<div id="contentid">
+			<table>
+				<tr>
+					<th colspan="2">问卷调查内容：</th>
+				</tr>
+				<tr>
+					<td>您的id：</td><td><input type="text"/></td>
+				<tr>	
+					<td>您的邮箱:</td><td><input type="text"/></td>
+				</tr>
+			</table>
+		</div>
+
+</body>
+</html>

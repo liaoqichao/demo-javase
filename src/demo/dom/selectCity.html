@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>下拉菜单选择颜色</title>
+<link rel="stylesheet" href="selectCity.css" type="text/css"/>
+<script type="text/javascript" src="selectCity.js"></script>
+</head>
+<body>
+	<!-- 
+		二级联动菜单
+	 -->
+	 <select id="provinceid" onchange="selectProvince()">
+	 	<option>选择省份</option>
+	 	<option>北京</option>
+	 	<option>山东</option>
+	 	<option>广东</option>
+	 	<option>辽宁</option>
+	 </select>
+	 <select id="cityid">
+	 	<option>选择城市</option>
+	 </select>
+</body>
+</html>

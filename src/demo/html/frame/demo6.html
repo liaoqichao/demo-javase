@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>框架</title>
+</head>
+<!-- 框架 
+框架把窗体分成几部分,1个窗体可以显示多种资源。这样可以方便资源复用(一个logo,全部页面都用这个logo)
+定义框架,使用frameset
+frameset不能嵌套在body里面
+-->
+	<frameset rows="30%,*"><!-- row 代表按行分,*代表剩下那部分 -->
+		<frame src="top.html" name="top"/>
+		<frameset cols="30%,*">
+		<frame src="left.html" name="left"/>
+		<frame src="right.html" name="right" />
+		</frameset>
+	</frameset>
+	
+<body>
+
+
+</body>
+</html>

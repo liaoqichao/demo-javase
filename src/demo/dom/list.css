@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+dl dd{ /*dl中的dd标签*/
+
+	margin: 0px;
+/* 	dd标签自带缩进，意味着在dl区域中，dd标签最左边的外边距加宽了，设置为0则对齐 */
+	
+}
+dl{
+	height:16px;	/*默认一个字的高度*/
+	overflow:hidden;/*设置overflow布局,超过这个高度就会有隐藏,滚动条,aoto,visible(默认)等值*/
+}
+
+/* 预定义一些样式,便于给标签的样式进行动态加载 */
+.open{
+	overflow:visible;
+}
+.close{
+	overflow: hidden;
+}
+dl dt{
+	color: #ff8000;
+}
+dl dd{
+	color:teal;
+}

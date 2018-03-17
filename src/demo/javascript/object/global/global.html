@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>全局方法和forin语句</title>
+</head>
+<body>
+	<script type="text/javascript" src="../../out.js"></script>
+	<script type="text/javascript">
+	//Global对象是一个固有对象,目的是把所有全局方法集中在一个对象中.Gloabl对象的方法不需要对象引用或者类名来调用。
+//		JS启动这些方法就自动存在
+	//Global属性：Infinity NaN(Not a number)
+	//Global对象:escape,eval,isFinite,isNaN,parseInt(数字字符串,[进制]),parseFloat,unescape,encodeURI,decodeURI
+		println("123"+1);//1231
+		println(parseInt("123")+1);//124
+		println(parseInt("abc"));//NaN
+		println(parseInt("12abc"));//12
+		println(parseInt("abc12"));//NaN
+		println(parseInt("110",2));//6   110，2进制  输出的结果为十进制数6 .进制数最大为36
+		println(parseInt("0x3c",16));//60
+		//通过isNaN来判断结果是否非法(not a number)
+		
+		println("<hr/>");
+		//将十进制转换成其他进制，使用Number对象完成
+		var num1 = new Number(6);	//为什么不加new也可以,JS中很少有必要显式创建Number对象
+		println("num1 = "+num1);//6
+		println("num1 = "+num1.toString(2));//110
+		
+		var num2 = 60;		//基于对象,一个数字也是对象
+		println("num2(8) = "+num2.toString(8));//74
+		println("num2(16) = "+num2.toString(16));//3c
+		println("num2(3) = "+num2.toString(3));//2020
+	</script>
+	<script type="text/javascript">
+// 			forin语句
+// 			格式：for(变量  in 对象){	} 对对象进行遍历的语句
+			var arr =[32,80,65];
+			for(i in arr){
+				println("arr["+i+"] = "+arr[i]);
+// 				arr[0] = 32
+// 				arr[1] = 80
+// 				arr[2] = 65
+			}
+			println("<hr/>");
+			
+// 			var obj = "abc"; //某些对象不能直接遍历
+// 			for(x in arr){
+// 				println(x);//0 1 2
+
+	// -----------------------eval------------------------------------
+// 		 在js标签内,eval(js代码);就直接执行eval代码
+// 		var str = "alert('1234')";
+// 		alert(str);//alert('1234')
+// 		eval(str);//1234
+// 			}
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+div{
+	border:#00ccff 1px solid;
+	width:200px; 
+	padding:30px;
+	margin:10px; 
+/* 	外边距 */
+}
+#div_1{
+	background-color: #00ccff;
+}
+#div_2{
+	background-color: #ff80ff;
+}
+#div_3{
+	background-color: #ffff00;
+}
+#div_4{
+	background-color: #00ff80;
+}

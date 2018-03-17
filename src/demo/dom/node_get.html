@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		要操作节点,就要先获取到节点,要获取到节点就要获取节点所属的文档对象document
+		document对象最常见的操作就是获取页面中的节点。
+		
+		获取节点方法的体现：
+		1.getElementById();			通过标签的id属性获取该标签节点,返回该节点(标签)对象
+		2.getElementsByName();		通过标签的name属性获取节点,因为name有相同,所以返回的是一个数组(容器)
+		3.getElementsByTagName();	通过标签名获取节点。因为标签名会重复,所以返回的是一个数组
+	
+		//带s都是返回数组
+	 -->
+	 <script type="text/javascript" src="out.js"></script>
+	 <script type="text/javascript">
+	 	//获取页面中的div节点,getElementById方法
+	 	function getNodeDemo(){	
+	 		var divNode = document.getElementById("divid");
+	 	
+	 		//节点都具有的三个属性：节点名称,节点类型,节点值。
+// 	 		println(divNode.nodeName +" : "+divNode.nodeType +" : "+divNode.nodeValue);
+	 		//DIV : 1 : null
+	 		
+	 		//常见的节点：
+// 	 		1.标签型节点	类型1
+// 	 		2.属性节点  	类型2
+// 	 		3.文本节点		类型3
+	 		
+// 	 		标签型节点是没有值,属性和文本节点是可以有值的
+			
+// 			获取div节点中的文本
+// 			var text = divNode.innerHTML;	
+// 	 		alert(text);			//?不弹出来
+			
+	 		//改变div中的文本
+	 		divNode.innerHTML = "-_,-     文本被我改掉了".fontcolor("red");
+	 	}
+	 	
+	 	//获取文本框节点,getElementsByName方法
+	 	function getNodeDemo2(){
+	 		var nodes = document.getElementsByName("user");
+// 	 		alert(nodes[0]);
+// 	 		alert(nodes.type);//text
+// 	 		alert(nodes.name);//user
+	 		alert(nodes[0].value);//-_,-
+	 	}
+	 	
+		//获取超链接节点对象,getElementsByTagName方法
+		function getNodeDemo3(){
+			var nodes = document.getElementsByTagName("a");
+// 			alert(nodes.length);//2
+			for(var x=0; x<nodes.length ;x++){
+				alert(nodes[x].innerHTML);
+				nodes[x].target="_blank";
+			}
+			
+		}
+		
+		//如何只获取一部分超链接呢?,只要获取到被操作的超链接所属的节点即可,在通过这个节点获取里面的所有超链接节点
+		function getNodeDemo4(){
+			var divNode = document.getElementById("newslink");
+			//凡是容器型标签都有getElementsByTagName方法,因为标签里面可以装标签
+			var aNodes = divNode.getElementsByTagName("a");
+			for(var x=0 ; x<aNodes.length ;x++){
+				aNodes[x].target = "_blank";
+			}
+		}
+	 </script>
+	 <input type="button" value="演示document对象获取节点getElementById"  onclick="getNodeDemo()"/>
+	 <input type="button" value="演示document对象获取节点getElementsByName"  onclick="getNodeDemo2()"/>
+	 <input type="button" value="演示document对象获取节点getElementsByTagName"  onclick="getNodeDemo3()"/>
+	 <input type="button" value="演示document对象获取节点getElementsByTagName2"  onclick="getNodeDemo4()"/>
+	 <!-- 没点这个按钮之前是在当前窗口打开页面,点了这个按钮后是在新窗口打开页面 -->
+	 <div id="divid" >这是一个div区域</div>
+	 <input type="text" name="user" />
+	 
+	 <!-- 门户网站在当前页面打开-->
+	 <a href="http://www.baidu.com" >百度</a><!-- 有100个超链接就要写100次target,这样很麻烦 -->
+	 <a href="http://www.sina.com.cn">sina</a>
+	 <!-- 新闻网站,用新窗口打开 -->
+	 <div id="newslink">
+		 <a href="http://www.163.com">163</a>
+		 <a href="http://www.itcast.cn">传智播客</a>
+	 </div>
+</body>
+</html>
